@@ -21,10 +21,22 @@
     const wrap = document.getElementById('wrap');
     const start = document.getElementById('start');
 
-    const textLists = []; // 複数のテキストを格納する配列
+    // 複数のテキストを格納する配列
+    const textLists = [
+        'Hello World',
+        'This is my App',
+        'How are you?'
+    ];
 
+    // ランダムなテキストを画面に表示する
+    const createText = () => {
+        // pタグを取得
+        const p = document.getElementById('text');
+        p.textContent = textLists[0];
+    };
 
-    const createText = () => {}; // ランダムなテキストを画面に表示する
+    // createTextを実行する
+    createText();
 
     const keyDown = e => {}; // キーイベント＆入力判定処理
 
