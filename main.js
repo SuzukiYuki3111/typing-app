@@ -29,7 +29,9 @@ const createText = () => {
     });
 };
 
-const keyDown = e => {}; // キーイベント＆入力判定処理
+const keyDown = e => {
+    console.log(e.key);
+}; // キーイベント＆入力判定処理
 
 const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
 
@@ -40,4 +42,6 @@ const timer = () => {}; // タイマー処理
 // startをクリックしたらcreateTextを実行する
 start.addEventListener('click', () => {
     createText();
+    // キーの判別をする
+    document.addEventListener('keydown', keyDown);
 });
