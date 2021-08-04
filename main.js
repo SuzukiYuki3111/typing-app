@@ -10,6 +10,8 @@ const textLists = [
     'noodle','kaku','ryoma','victor','zeku',
     'sunni','nori','isopp','assassin'
 ];
+// textListsを判別するようの配列
+let checkTexts = [];
 
 // ランダムなテキストを画面に表示する
 const createText = () => {
@@ -19,19 +21,31 @@ const createText = () => {
     const rnd = Math.floor(Math.random() * textLists.length);
     // p要素を空にする
     p.textContent = '';
-    textLists[rnd].split('').map(value => {
+    // 表示されたテキストをcheckTextsに格納する
+    checkTexts = textLists[rnd].split('').map(value => {
         // span要素を作成
         const span = document.createElement('span');
         // span要素に一文字ずつ当てはめる
         span.textContent = value;
         // span要素をpに追加
         p.appendChild(span);
+        // 一文字ずつcheckListsに格納していく
+        return span;
     });
 };
-
+ // キーイベント＆入力判定処理
 const keyDown = e => {
-    console.log(e.key);
-}; // キーイベント＆入力判定処理
+    if(e.key === checkTexts[0].textContent) {
+        // 0番目にadd-colorを付与する
+        checkTexts[0].className = 'add-color';
+        // shiftメソッドで常に先頭を0番目にする
+        checkTexts.shift();
+        // chekcTextsがなかったら、ランダムにテキストを出す
+        if(!checkTexts.length){
+            createText();
+        };
+    };
+};
 
 const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
 
