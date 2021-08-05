@@ -72,7 +72,8 @@ const rankCheck = score => {
 const gameOver = id => {
     clearInterval(id);
     const result = confirm(rankCheck(score));
-    // console.log('ゲーム終了！');
+    // trueだったらリロードする
+    if(result) window.location.reload();
 };
 
  // タイマー処理
