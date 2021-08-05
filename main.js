@@ -41,9 +41,7 @@ const keyDown = e => {
         // shiftメソッドで常に先頭を0番目にする
         checkTexts.shift();
         // chekcTextsがなかったら、ランダムにテキストを出す
-        if(!checkTexts.length){
-            createText();
-        };
+        if(!checkTexts.length) createText();
     };
 };
 
@@ -51,11 +49,24 @@ const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
 
 const gameOver = id => {}; // ゲームの終了処理
 
-const timer = () => {}; // タイマー処理
+ // タイマー処理
+const timer = () => {
+    let time = 60;
+    const count = document.getElementById('count');
+    const id = setInterval(() => {
+        // カウントが0になったらクリアする
+        if(time <= 0) clearInterval(id);
+        // countを一秒ずつ減らす
+        count.textContent = time--;
+    }, 1000);
+};
 
 // startをクリックしたらcreateTextを実行する
 start.addEventListener('click', () => {
+    timer();
     createText();
+    // startを押すと非表示にする
+    start.style.display = 'none';
     // キーの判別をする
     document.addEventListener('keydown', keyDown);
 });
