@@ -1,6 +1,7 @@
 // wrap,startの取得
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
+const concept = document.getElementById('concept');
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -92,6 +93,7 @@ start.addEventListener('click', () => {
     createText();
     // startを押すと非表示にする
     start.style.display = 'none';
+    concept.style.display = 'none';
     // キーの判別をする
     document.addEventListener('keydown', keyDown);
 });
