@@ -47,15 +47,19 @@ const keyDown = e => {
 
 const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
 
-const gameOver = id => {}; // ゲームの終了処理
+ // ゲームの終了処理
+const gameOver = id => {
+    clearInterval(id);
+    console.log('ゲーム終了！');
+};
 
  // タイマー処理
 const timer = () => {
     let time = 60;
     const count = document.getElementById('count');
     const id = setInterval(() => {
-        // カウントが0になったらクリアする
-        if(time <= 0) clearInterval(id);
+        // カウントが0になったらtimer idをgameOverに渡す
+        if(time <= 0) gameOver(id);
         // countを一秒ずつ減らす
         count.textContent = time--;
     }, 1000);
