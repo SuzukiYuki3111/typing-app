@@ -33,6 +33,9 @@ const createText = () => {
         return span;
     });
 };
+
+let score = 0;
+
  // キーイベント＆入力判定処理
 const keyDown = e => {
     if(e.key === checkTexts[0].textContent) {
@@ -40,17 +43,35 @@ const keyDown = e => {
         checkTexts[0].className = 'add-color';
         // shiftメソッドで常に先頭を0番目にする
         checkTexts.shift();
+        score++;
         // chekcTextsがなかったら、ランダムにテキストを出す
         if(!checkTexts.length) createText();
     };
 };
 
-const rankCheck = rank => {}; // ランク判定とメッセージ生成処理
+// ランク判定とメッセージ生成処理
+const rankCheck = score => {
+    // 空のテキスト
+    let text = '';
+    // スコアごとにランクとテキストを変える
+    if(score < 100) {
+        text = `あなたのランクはCです。\nBランクまであと${100 - score}文字です。`;
+    } else if(score < 200) {
+        text = `あなたのランクはBです。\nAランクまであと${200 - score}文字です。`;
+    } else if(score < 300) {
+        text = `あなたのランクはAです。\nSランクまであと${300 - score}文字です。`;
+    } else if(score >= 300) {
+        text = `あなたのランクはSです。\nおめでとうございます！`;
+    }
+    // 文字数と次の動作を誘導
+    return `${score}文字打てました！\n${text}\n【OK】リトライ／【キャンセル】終了`;
+}; 
 
  // ゲームの終了処理
 const gameOver = id => {
     clearInterval(id);
-    console.log('ゲーム終了！');
+    const result = confirm(rankCheck(score));
+    // console.log('ゲーム終了！');
 };
 
  // タイマー処理
