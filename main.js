@@ -1,4 +1,4 @@
-// wrap,startの取得
+// wrap,start,conceptの取得
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const concept = document.getElementById('concept');
@@ -9,14 +9,15 @@ const textLists = [
     'yosh is stoic','AT-4','hong10','junior','abere','wing zero',
     'neguin','pocket','menno','tsukki','physicx',
     'noodle','kaku','ryoma','victor','zeku',
-    'sunni','nori','isopp','assassin'
+    'sunni','nori','isopp','assassin','wing',
+    'pivet','machine','juju','jun','shosei',
+    'gen roc','hiro10','mackey1',
 ];
 // textListsを判別するようの配列
 let checkTexts = [];
 
 // ランダムなテキストを画面に表示する
 const createText = () => {
-    // pタグを取得
     const p = document.getElementById('text');
     // textListからランダムに出力し、テキストごとに分割する
     const rnd = Math.floor(Math.random() * textLists.length);
@@ -24,13 +25,11 @@ const createText = () => {
     p.textContent = '';
     // 表示されたテキストをcheckTextsに格納する
     checkTexts = textLists[rnd].split('').map(value => {
-        // span要素を作成
+        // span要素を作成し、span要素に一文字ずつ当てはめる
         const span = document.createElement('span');
-        // span要素に一文字ずつ当てはめる
         span.textContent = value;
-        // span要素をpに追加
         p.appendChild(span);
-        // 一文字ずつcheckListsに格納していく
+        // 一文字ずつcheckTextsに格納していく
         return span;
     });
 };
@@ -47,7 +46,13 @@ const keyDown = e => {
         score++;
         // chekcTextsがなかったら、ランダムにテキストを出す
         if(!checkTexts.length) createText();
-    };
+    } else if(e.key === 'Shift') {
+        // shiftを押したときは色は変わらない
+        wrap.style.backgroundColor = '#666';
+    } else {
+        // keyが違うときは背景がredになる
+        wrap.style.backgroundColor = 'red';
+    }
 };
 
 // ランク判定とメッセージ生成処理
@@ -55,7 +60,9 @@ const rankCheck = score => {
     // 空のテキスト
     let text = '';
     // スコアごとにランクとテキストを変える
-    if(score < 100) {
+    if(score < 50) {
+        text = `あなたのランクはDです。\nCランクまであと${50 - score}文字です。`;
+    } else if(score < 100) {
         text = `あなたのランクはCです。\nBランクまであと${100 - score}文字です。`;
     } else if(score < 200) {
         text = `あなたのランクはBです。\nAランクまであと${200 - score}文字です。`;
