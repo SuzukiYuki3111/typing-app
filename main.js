@@ -38,6 +38,7 @@ let score = 0;
 
  // キーイベント＆入力判定処理
 const keyDown = e => {
+    wrap.style.backgroundColor = '#666';
     if(e.key === checkTexts[0].textContent) {
         // 0番目にadd-colorを付与する
         checkTexts[0].className = 'add-color';
