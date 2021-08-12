@@ -1,69 +1,73 @@
 body {
-    font-size: 6em; 
-    text-align: center;
-  }
- 
-  #count {
-    margin: 0;
-    font-weight: bold;
-    color: #888;
-  }
- 
-  #wrap {
-    margin-top: 20px;
-    padding: 20px 10px;
-    background-color: #666;
-    font-weight: bold;
-    color: #fff;
-  }
+  font-size: 3em;
+  text-align: center;
+}
 
-  #concept {
-    font-size: 2rem;
-    margin-bottom: 0px;
-  }
+#count {
+  margin: 0;
+  font-weight: bold;
+  color: #888;
+}
 
-  button{
-    background:#1AAB8A;
-    color:#fff;
-    border:none;
-    position:relative;
-    height:50px;
-    font-size:0.3em;
-    padding:0 2em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
-  }
-  button:hover{
-    background:#fff;
-    color:#1AAB8A;
-  }
-  button:before,button:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: #1AAB8A;
-    transition:400ms ease all;
-  }
-  button:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
-  }
-  button:hover:before,button:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }
+#wrap {
+  margin-top: 20px;
+  padding: 20px 10px;
+  background-color: #666;
+  font-weight: bold;
+  color: #fff;
+}
 
-  span {
-    transition: all 300ms 0s ease;
+#concept {
+  font-size: 2rem;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+button {
+  border: 2px solid #000;
+  z-index: 1;
+  padding: 10px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+button:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+
+button:hover {
+  color: #fff
+}
+
+button:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+button:active {
+  top: 2px;
+}
+
+span {
+  transition: all 300ms 0s ease;
 }
 
 .add-color {
-    font-size: 0.5em;
-    color: #666;
+  font-size: 0.5em;
+  color: #666;
 }
