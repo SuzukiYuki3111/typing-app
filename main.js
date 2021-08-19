@@ -2,6 +2,7 @@
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const concept = document.getElementById('concept');
+const tutorial = document.getElementById('tutorial');
 
 // フェードイン表示、ボタンはCSSでアニメーションを遅延
 wrap.animate([{opacity: '0'}, {opacity: '1'}], 1000);
@@ -111,4 +112,9 @@ start.addEventListener('click', () => {
     concept.style.display = 'none';
     // キーの判別をする
     document.addEventListener('keydown', keyDown);
+});
+
+// tutorialをクリックしたら遊び方の説明が表示される
+tutorial.addEventListener('click' , () => {
+
 });

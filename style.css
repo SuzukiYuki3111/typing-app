@@ -23,7 +23,8 @@ body {
   margin-bottom: 0px;
 }
 
-button {
+#start {
+  width: 50%;
   border: 2px solid #000;
   z-index: 1;
   padding: 10px 25px;
@@ -36,14 +37,14 @@ button {
   position: relative;
   display: inline-block;
   opacity: 0;
-  animation: button 2s ease forwards;
+  animation: start 2s ease forwards;
   animation-delay: 1s;
 }
-@keyframes button {
-  100% {  opacity: 1;}
+@keyframes start {
+  100% { opacity: 1;}
 }  
 
-button:after {
+#start:after {
   position: absolute;
   content: "";
   width: 0;
@@ -55,17 +56,62 @@ button:after {
   transition: all 0.3s ease;
 }
 
-
-button:hover {
+#start:hover {
   color: #fff
 }
 
-button:hover:after {
+#start:hover:after {
   left: 0;
   width: 100%;
 }
 
-button:active {
+#start:active {
+  top: 2px;
+}
+
+#tutorial {
+  width: 50%;
+  border: 2px solid #000;
+  z-index: 1;
+  padding: 10px 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: start 2s ease forwards;
+  animation-delay: 1s;
+}
+@keyframes tutorial {
+  100% { opacity: 1;}
+}  
+
+#tutorial:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+#tutorial:hover {
+  color: #fff
+}
+
+#tutorial:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+#tutorial:active {
   top: 2px;
 }
 
