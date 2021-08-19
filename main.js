@@ -4,6 +4,7 @@ const start = document.getElementById('start');
 const concept = document.getElementById('concept');
 
 // フェードイン表示、ボタンはCSSでアニメーションを遅延
+wrap.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 concept.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 
 // 複数のテキストを格納する配列
@@ -98,6 +99,8 @@ const timer = () => {
         count.textContent = time--;
     }, 1000);
 };
+// タイマーにフェードイン付与
+count.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 
 // startをクリックしたらcreateTextを実行する
 start.addEventListener('click', () => {
