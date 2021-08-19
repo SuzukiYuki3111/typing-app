@@ -3,6 +3,9 @@ const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const concept = document.getElementById('concept');
 
+// フェードイン表示、ボタンはCSSでアニメーションを遅延
+concept.animate([{opacity: '0'}, {opacity: '1'}], 1000);
+
 // 複数のテキストを格納する配列
 const textLists = [
     'taisuke','issei','shigekix','ashitaka','ryo-spin','katsu1',
