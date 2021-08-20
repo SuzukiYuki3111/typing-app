@@ -17,10 +17,12 @@ body {
   color: #fff;
 }
 
-#concept {
-  font-size: 2rem;
+#accordion {
+  font-size: 1.3rem;
   margin-top: 50px;
   margin-bottom: 0px;
+  transition: 1.5s;
+  display: none;
 }
 
 #start {

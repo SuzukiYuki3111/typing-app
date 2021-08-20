@@ -1,12 +1,11 @@
 // wrap,start,conceptの取得
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
-const concept = document.getElementById('concept');
+const accordion = document.getElementById('accordion');
 const tutorial = document.getElementById('tutorial');
 
 // フェードイン表示、ボタンはCSSでアニメーションを遅延
 wrap.animate([{opacity: '0'}, {opacity: '1'}], 1000);
-concept.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -109,12 +108,18 @@ start.addEventListener('click', () => {
     createText();
     // startを押すと非表示にする
     start.style.display = 'none';
-    concept.style.display = 'none';
+    tutorial.style.display = 'none';
+    accordion.style.display = 'none';
     // キーの判別をする
     document.addEventListener('keydown', keyDown);
 });
 
 // tutorialをクリックしたら遊び方の説明が表示される
-tutorial.addEventListener('click' , () => {
+    tutorial.addEventListener('click' , () => {
+        if(accordion.style.display == 'block'){
+            accordion.style.display = 'none'
+        } else {
+            accordion.style.display = 'block'
+        };
+    });
 
-});
