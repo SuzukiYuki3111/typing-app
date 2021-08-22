@@ -14,7 +14,7 @@ body {
 .loading.hide {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 500ms;
+  transition: opacity 1300ms;
 }
 
 .loading .circle {

@@ -103,7 +103,7 @@ const timer = () => {
         if(time <= 0) gameOver(id);
         // countを一秒ずつ減らす
         count.textContent = time--;
-    }, 1000);
+    }, 1000); 
 };
 // タイマーにフェードイン付与
 count.animate([{opacity: '0'}, {opacity: '1'}], 1000);
