@@ -1,9 +1,8 @@
-// wrap,start,conceptの取得
+// htmlの各項目を取得
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const accordion = document.getElementById('accordion');
 const tutorial = document.getElementById('tutorial');
-
 const loading = document.querySelector( '.loading' );
 
 // ローディング処理
