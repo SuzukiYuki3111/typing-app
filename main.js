@@ -4,6 +4,13 @@ const start = document.getElementById('start');
 const accordion = document.getElementById('accordion');
 const tutorial = document.getElementById('tutorial');
 
+const loading = document.querySelector( '.loading' );
+
+// ローディング処理
+window.addEventListener( 'load', () => {
+  loading.classList.add( 'hide' );
+}, false );
+
 // フェードイン表示、ボタンはCSSでアニメーションを遅延
 wrap.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 
