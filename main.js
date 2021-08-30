@@ -1,6 +1,7 @@
-// htmlの各項目を取得
+// wrap,start,conceptの取得
 const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
+const concept = document.getElementById('concept');
 const accordion = document.getElementById('accordion');
 const tutorial = document.getElementById('tutorial');
 const loading = document.querySelector( '.loading' );
@@ -21,7 +22,7 @@ const textLists = [
     'noodle','kaku','ryoma','victor','zeku',
     'sunni','nori','isopp','assassin','wing',
     'pivet','machine','juju','jun','shosei',
-    'gen roc','hiro10','mackey1',
+    'gen roc','shade','ryuichi',
 ];
 // textListsを判別するようの配列
 let checkTexts = [];
@@ -103,8 +104,9 @@ const timer = () => {
         if(time <= 0) gameOver(id);
         // countを一秒ずつ減らす
         count.textContent = time--;
-    }, 1000); 
+    }, 1000);
 };
+
 // タイマーにフェードイン付与
 count.animate([{opacity: '0'}, {opacity: '1'}], 1000);
 
@@ -121,11 +123,10 @@ start.addEventListener('click', () => {
 });
 
 // tutorialをクリックしたら遊び方の説明が表示される
-    tutorial.addEventListener('click' , () => {
-        if(accordion.style.display == 'block'){
-            accordion.style.display = 'none'
-        } else {
-            accordion.style.display = 'block'
-        };
-    });
-
+tutorial.addEventListener('click' , () => {
+    if(accordion.style.display == 'block'){
+        accordion.style.display = 'none'
+    } else {
+        accordion.style.display = 'block'
+    };
+});
